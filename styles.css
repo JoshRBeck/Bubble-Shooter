@@ -2,3 +2,21 @@
   margin: 0;
   padding: 0;
 }
+.header {
+  font-family: "Bangers", cursive;
+  font-size: 4em;
+  color: maroon;
+  font-weight: 800;
+  font-style: oblique;
+  display: flex;
+  justify-content: center;
+}
+.score {
+  font-family: "Bangers", cursive;
+  font-size: 3em;
+  color: maroon;
+  font-weight: 800;
+  font-style: oblique;
+  display: flex;
+  justify-content: center;
+}
