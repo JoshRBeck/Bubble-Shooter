@@ -6,11 +6,22 @@ function preload() {
 // Set up Game
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  // Resize canvas to viewport
+}
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 //Draw the game
 function draw() {
   game.draw();
+  // if (frameCount % 90 === 0) {
+  //   this.enemies.push(new Enemies(this.enemiesImage));
+  // }
+  // this.enemies.forEach(function (enemies) {
+  //   enemies.draw();
+  // });
 }
+//Designate the key functions to move and shoot
 function keyPressed() {
   if (keyCode === UP_ARROW) {
     game.player.moveUp();
