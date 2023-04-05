@@ -5,4 +5,7 @@ class Enemies {
     this.width = 140;
     this.height = 100;
   }
+  draw () {
+    
+  }
 }
