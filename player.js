@@ -13,7 +13,6 @@ class Player {
       bullet.draw();
       bullet.update();
     });
-    // image(game.bulletImage, this.x + 80, this.y + 15, 90, 40);
   }
   moveUp() {
     if (this.y >= this.height - 50) {
@@ -38,9 +37,5 @@ class Player {
   shoot() {
     let bullet = new Bullet(this);
     this.bullets.push(bullet);
-    bullet.update();
-    // if (keyPressed === true) {
-    //   game.bulletImage.draw();
-    // }
   }
 }

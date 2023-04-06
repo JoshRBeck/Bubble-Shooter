@@ -2,17 +2,17 @@ class Game {
   constructor() {
     this.background = new Background();
     this.player = new Player();
-    // this.enemies = [];
+    this.enemies = [];
     this.backgroundImages;
     this.playerImage;
     this.bullet;
-    // this.enemiesImage;
+    this.enemiesImage;
   }
   preload() {
     this.backgroundImages = loadImage("./Assets/BackgroundImage.jpg");
     this.playerImage = loadImage("./Assets/PlayerShip2.png");
     this.bulletImage = loadImage("./Assets/GreenLaser.png");
-    // this.enemiesImage = loadImage("./Assets/EnemyShip.png");
+    this.enemiesImage = loadImage("./Assets/EnemyShip.png");
     // [
     //   { src: loadImage("./Assets/EnemyShip.png") },
     //   { src: loadImage("./Assets/EnemyShip2.png") },
@@ -22,8 +22,11 @@ class Game {
     clear();
     this.background.draw();
     this.player.draw();
-    
-    // this.enemiesImage.draw();
-    // this.enemies.draw();
+    if (frameCount % 90 === 0) {
+      this.enemies.push(new Enemies(this.enemiesImage));
+    }
+    this.enemies.forEach(function (enemies) {
+      enemies.draw();
+    });
   }
 }
