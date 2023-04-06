@@ -14,7 +14,6 @@ class Enemies {
     this.x -= 15;
   }
   collision(bulletInfo) {
-    console.log(bulletInfo);
     // Get the middle of the enemies
     let EnemiesX = this.x + this.width / 2;
     let EnemiesY = this.y + this.height / 2;
@@ -25,6 +24,19 @@ class Enemies {
     if (dist(EnemiesX, EnemiesY, bulletX, bulletY) >= 25) {
       return false;
     } else {
+      return true;
+    }
+  }
+  touch(playerInfo) {
+    let EnemiesX = this.x + this.width / 2;
+    let EnemiesY = this.y + this.height / 2;
+    let playerX = playerInfo.x + playerInfo.width / 2;
+    let playerY = playerInfo.y + playerInfo.height / 2;
+    if (dist(EnemiesX, EnemiesY, playerX, playerY) >= 25) {
+      return false;
+    } else {
+      // Text("GAME OVER");
+      // noLoop();
       return true;
     }
   }

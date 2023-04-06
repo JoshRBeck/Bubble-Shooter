@@ -21,8 +21,8 @@ class Game {
     clear();
     this.background.draw();
     this.player.draw();
-    //This creates enemies every 75 frames and stores them in an array
-    if (frameCount % 75 === 0) {
+    //This creates enemies every 50 frames and stores them in an array
+    if (frameCount % 50 === 0) {
       this.enemies.push(new Enemies(this.enemiesImage));
     }
     //This will take an enemy from previous array and draws them onto the game level
@@ -34,8 +34,8 @@ class Game {
         const enemy = this.enemies[i];
         if (enemy.collision(this.player.bullets[j])) {
           // Increase score by 100
-          this.score += 100;
-          document.querySelector("score").innerHTML = this.score;
+          this.player.score += 100;
+          document.querySelector("span").innerHTML = this.player.score;
           // Remove bullet
           this.player.bullets.splice(j, 1);
           // Remove enemy
@@ -44,6 +44,27 @@ class Game {
           break;
         }
       }
+    }
+    for (let w = 0; w < this.enemies.length; w++) {
+      const enemy = this.enemies[w];
+      if (enemy.touch(this.player)) {
+        noLoop();
+        text("GAME OVER", windowHeight / 2, windowWidth / 2);
+        textSize(width / 3);
+        textAlign(CENTER, CENTER);
+      }
+    }
+  }
+  checkWinningCondition() {
+    if (this.player.score >= 1000) {
+      fill(230, 184, 0);
+      text("YOU WIN!!!", windowHeight / 2, windowWidth / 2);
+      textSize(width / 3);
+      textAlign(CENTER, CENTER);
+      let time = millis();
+      rotateX(time / 1000);
+      rotateZ(time / 1234);
+      noLoop();
     }
   }
 }
