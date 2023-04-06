@@ -11,7 +11,7 @@ class Enemies {
     this.x -= this.velocity;
   }
   update() {
-    this.x -= 15;
+    this.x -= 20;
   }
   collision(bulletInfo) {
     // Get the middle of the enemies
@@ -35,8 +35,11 @@ class Enemies {
     if (dist(EnemiesX, EnemiesY, playerX, playerY) >= 25) {
       return false;
     } else {
-      // Text("GAME OVER");
-      // noLoop();
+      fill(230, 184, 0);
+      text("GAME OVER!!!", windowHeight / 2, windowWidth / 2);
+      textSize(windowWidth / 3);
+      textAlign(CENTER, CENTER);
+      noLoop();
       return true;
     }
   }

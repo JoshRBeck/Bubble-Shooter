@@ -12,10 +12,6 @@ class Game {
     this.playerImage = loadImage("./Assets/PlayerShip2.png");
     this.bulletImage = loadImage("./Assets/GreenLaser.png");
     this.enemiesImage = loadImage("./Assets/EnemyShip.png");
-    // [
-    //   { src: loadImage("./Assets/EnemyShip.png") },
-    //   { src: loadImage("./Assets/EnemyShip2.png") },
-    // ];
   }
   draw() {
     clear();
@@ -50,21 +46,11 @@ class Game {
       if (enemy.touch(this.player)) {
         noLoop();
         text("GAME OVER", windowHeight / 2, windowWidth / 2);
-        textSize(width / 3);
+        textSize(400);
         textAlign(CENTER, CENTER);
       }
     }
-  }
-  checkWinningCondition() {
-    if (this.player.score >= 1000) {
-      fill(230, 184, 0);
-      text("YOU WIN!!!", windowHeight / 2, windowWidth / 2);
-      textSize(width / 3);
-      textAlign(CENTER, CENTER);
-      let time = millis();
-      rotateX(time / 1000);
-      rotateZ(time / 1234);
-      noLoop();
-    }
+    this.player.checkWinningCondition();
   }
 }
+

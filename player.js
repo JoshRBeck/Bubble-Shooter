@@ -38,12 +38,12 @@ class Player {
     let bullet = new Bullet(this);
     this.bullets.push(bullet);
   }
-  // checkWinningCondition() {
-  //   if (this.score >= 1000) {
-  //     noLoop();
-  //     text("YOU WIN!!!", windowHeight / 2, windowWidth / 2);
-  //     textSize(width / 3);
-  //     textAlign(CENTER, CENTER);
-  //   }
-  // }
+  checkWinningCondition() {
+    if (this.score >= 1000) {
+      fill("yellow");
+      textSize(30);
+      text("You won!", 260, 300);
+      noLoop();
+    }
+  }
 }
