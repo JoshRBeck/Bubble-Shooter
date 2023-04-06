@@ -22,7 +22,7 @@ class Game {
     clear();
     this.background.draw();
     this.player.draw();
-    this.bullet.draw();
+    
     // this.enemiesImage.draw();
     // this.enemies.draw();
   }

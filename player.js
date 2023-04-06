@@ -5,10 +5,15 @@ class Player {
     this.width = 90;
     this.height = 80;
     this.score = 0;
+    this.bullets = [];
   }
   draw() {
     image(game.playerImage, this.x, this.y, this.width, this.height);
-    image(game.bulletImage, this.x + 80, this.y + 15, 90, 40);
+    this.bullets.forEach((bullet) => {
+      bullet.draw();
+      bullet.update();
+    });
+    // image(game.bulletImage, this.x + 80, this.y + 15, 90, 40);
   }
   moveUp() {
     if (this.y >= this.height - 50) {
@@ -31,8 +36,11 @@ class Player {
     }
   }
   shoot() {
-    if (keyPressed === true) {
-      bullet.image.draw();
-    }
+    let bullet = new Bullet(this);
+    this.bullets.push(bullet);
+    bullet.update();
+    // if (keyPressed === true) {
+    //   game.bulletImage.draw();
+    // }
   }
 }
