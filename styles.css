@@ -25,7 +25,7 @@ html {
   justify-content: center;
   text-shadow: 0 0 5px #ff0000, 0 0 15px #00ff00;
 }
-.score {
+#score {
   font-family: "Bangers", cursive;
   font-size: 1.5em;
   color: #b30000;
@@ -34,4 +34,10 @@ html {
   display: flex;
   justify-content: center;
   text-shadow: 0 0 5px #ff0000, 0 0 15px #00ff00;
+}
+#start-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
 }

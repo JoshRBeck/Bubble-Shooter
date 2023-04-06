@@ -5,9 +5,7 @@ class Game {
     this.enemies = [];
     this.backgroundImages;
     this.playerImage;
-    this.bullet;
     this.enemiesImage;
-    this.eliminatedEnemies = [];
   }
   preload() {
     this.backgroundImages = loadImage("./Assets/BackgroundImage.jpg");
@@ -23,22 +21,29 @@ class Game {
     clear();
     this.background.draw();
     this.player.draw();
-    //This creates enemies every 90 frames and stores them in an array
-    if (frameCount % 90 === 0) {
+    //This creates enemies every 75 frames and stores them in an array
+    if (frameCount % 75 === 0) {
       this.enemies.push(new Enemies(this.enemiesImage));
     }
     //This will take an enemy from previous array and draws them onto the game level
     this.enemies.forEach(function (enemies) {
       enemies.draw();
     });
-    //This is a function that represents if an enemy collides with a player shot bullet, remove from the game board
-    // and place into a seperate array called eliminated enemies
-    // this.eliminatedEnemies = this.enemies.filter(this.enemies => {
-    // 	if (this.enemies.collision(this.bullet)) {
-    // 		return false
-    // 	} else {
-    // 		return true
-    // 	}
-    // })
+    for (let i = 0; i < this.enemies.length; i++) {
+      for (let j = 0; j < this.player.bullets.length; j++) {
+        const enemy = this.enemies[i];
+        if (enemy.collision(this.player.bullets[j])) {
+          // Increase score by 100
+          this.score += 100;
+          document.querySelector("score").innerHTML = this.score;
+          // Remove bullet
+          this.player.bullets.splice(j, 1);
+          // Remove enemy
+          this.enemies.splice(i, 1);
+          // Exit loop, because bullet can only hit one enemy
+          break;
+        }
+      }
+    }
   }
 }
