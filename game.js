@@ -7,6 +7,7 @@ class Game {
     this.playerImage;
     this.bullet;
     this.enemiesImage;
+    this.eliminatedEnemies = [];
   }
   preload() {
     this.backgroundImages = loadImage("./Assets/BackgroundImage.jpg");
@@ -22,11 +23,22 @@ class Game {
     clear();
     this.background.draw();
     this.player.draw();
+    //This creates enemies every 90 frames and stores them in an array
     if (frameCount % 90 === 0) {
       this.enemies.push(new Enemies(this.enemiesImage));
     }
+    //This will take an enemy from previous array and draws them onto the game level
     this.enemies.forEach(function (enemies) {
       enemies.draw();
     });
+    //This is a function that represents if an enemy collides with a player shot bullet, remove from the game board
+    // and place into a seperate array called eliminated enemies
+    // this.eliminatedEnemies = this.enemies.filter(this.enemies => {
+    // 	if (this.enemies.collision(this.bullet)) {
+    // 		return false
+    // 	} else {
+    // 		return true
+    // 	}
+    // })
   }
 }

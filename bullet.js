@@ -11,6 +11,6 @@ class Bullet {
     image(game.bulletImage, this.x, this.y, this.width, this.height);
   }
   update() {
-    this.x += 5;
+    this.x += 10;
   }
 }
