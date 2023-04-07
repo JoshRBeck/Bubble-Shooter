@@ -35,11 +35,6 @@ class Enemies {
     if (dist(EnemiesX, EnemiesY, playerX, playerY) >= 25) {
       return false;
     } else {
-      fill(230, 184, 0);
-      text("GAME OVER!!!", windowHeight / 2, windowWidth / 2);
-      textSize(windowWidth / 3);
-      textAlign(CENTER, CENTER);
-      noLoop();
       return true;
     }
   }

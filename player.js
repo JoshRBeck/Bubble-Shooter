@@ -41,8 +41,8 @@ class Player {
   checkWinningCondition() {
     if (this.score >= 1000) {
       fill("yellow");
-      textSize(30);
-      text("You won!", 260, 300);
+      textSize(40);
+      text("YOU WON!!", 600, 300);
       noLoop();
     }
   }

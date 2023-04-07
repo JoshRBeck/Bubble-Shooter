@@ -44,13 +44,12 @@ class Game {
     for (let w = 0; w < this.enemies.length; w++) {
       const enemy = this.enemies[w];
       if (enemy.touch(this.player)) {
+        fill("yellow");
+        textSize(40);
+        text("GAME OVER!!", 600, 300);
         noLoop();
-        text("GAME OVER", windowHeight / 2, windowWidth / 2);
-        textSize(400);
-        textAlign(CENTER, CENTER);
       }
     }
     this.player.checkWinningCondition();
   }
 }
-
